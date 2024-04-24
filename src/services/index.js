@@ -1,12 +1,8 @@
 import axios from 'axios'
-// import dotenv from "dotenv";
-// dotenv.config();
 
 const username = 'omarologyy'
-
 const token = import.meta.env.VITE_REACT_APP_API_TOKENS
 
-// create a new repository
 const createRepository = async (data) => {
   return await axios.post('https://api.github.com/user/repos', data, {
     headers: {
@@ -57,7 +53,7 @@ const allRepositories = async (page = 1, perPage = 10) => {
 const singleRepository = async (id) => {
   return await axios.get(`https://api.github.com/repositories/${id}`, {
     headers: {
-      Authorization: `Bearer ${token}`, // Add a comma here
+      Authorization: `Bearer ${token}`,
       Accept: 'application/vnd.github.v3+json',
     },
   })
